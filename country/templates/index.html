@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Country REST API</title>
-</head>
-<body>
-
-</body>
-</html>
+<!-- base.html -->
+{% extends "base.html" %} {% block content %}
+<ul>
+  {% for todo in todos %}
+  <li>{{ todo.name }}</li>
+  {% endfor %}
+</ul>
+{% endblock content %}

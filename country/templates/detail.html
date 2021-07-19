@@ -1,0 +1,41 @@
+<!-- base.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6" style="margin: 6rem;">
+            <div class="card">
+                <div class="card-header text-center">{% for info in country %}<h2>{{ info.name }} ({{ info.alpha2Code }})</h2>{% endfor %}</div>
+                <div class="card-body">
+                    {% for info in country %}
+                        <img src="{{ info.flag }}" width="100%">
+                        <br/>
+                        <h4>Capital: {{ info.capital }}</h4>
+                        <p>Region: {{ info.region }}</p>
+                        <p>Subregion: {{ info.subregion }}</p>
+                        <p>Population: {{ info.population }}</p>
+                        <p>Timezones: {{ info.timezones }}</p>
+                        <p>Borders:
+                        <ul>{% for borders in info.borders %}<li>{{ borders }}</li>{% endfor %}</ul></p>
+                        <p>Currencies: {{ info.currencies|safe }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{#<script>#}
+{#  $( function() {#}
+{#    var availableTags = [#}
+{#        {% for country in countries %}#}
+{#            "{{country.name}}",#}
+{#        {% endfor %}#}
+{#    ];#}
+{#    $( "#tags" ).autocomplete({#}
+{#      source: availableTags#}
+{#    });#}
+{#  } );#}
+{#</script>#}
+
+{% endblock content %}
